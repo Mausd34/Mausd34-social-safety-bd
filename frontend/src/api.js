@@ -17,14 +17,13 @@ export const api = {
   areas: (city = "") => request(`/areas/${city ? `?city=${encodeURIComponent(city)}` : ""}`),
   cases: (params = {}) => { const query = new URLSearchParams(params).toString(); return request(`/cases/${query ? `?${query}` : ""}`); },
   statistics: () => request("/statistics/"),
-  caseDetail: (id) => request(`/cases/${encodeURIComponent(id)}/`),
-  login: (email, password) => request("/login/", { method: "POST", body: JSON.stringify({ email, password }) }),
-  register: (name, email, password) => request("/register/", { method: "POST", body: JSON.stringify({ name, email, password }) }),
+  caseDetail: id => request(`/cases/${encodeURIComponent(id)}/`),
+  login: (email, password) => request("/login/", {method:"POST", body:JSON.stringify({email,password})}),
+  register: (name,email,password) => request("/register/", {method:"POST", body:JSON.stringify({name,email,password})}),
   me: () => request("/me/"),
-  logout: () => request("/logout/", { method: "POST" }),
-  submitReport: (formData) => request("/reports/", { method: "POST", body: formData }),
+  logout: () => request("/logout/", {method:"POST"}),
+  submitReport: formData => request("/reports/", {method:"POST", body:formData}),
   adminReports: () => request("/admin/reports/"),
-  updateReportStatus: (id, status) => request("/admin/reports/", { method: "PATCH", body: JSON.stringify({ id, status }) }),
+  updateReport: (id,status) => request("/admin/reports/", {method:"PATCH", body:JSON.stringify({id,status})}),
 };
-
 export default api;
