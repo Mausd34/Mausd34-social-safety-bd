@@ -6,29 +6,43 @@
     <meta name="description" content="Social Safety BD — public safety statistics, verified case information and emergency resources." />
     <title>Social Safety BD</title>
     <style>
-      /* Bangladesh flag badge on the front-page hero */
+      /* Larger Bangladesh flag badge on the front-page hero */
       .hero-panel::after {
         content: "";
         position: absolute;
-        top: 18px;
-        right: 18px;
-        width: 58px;
-        height: 38px;
-        border-radius: 5px;
+        top: 20px;
+        right: 20px;
+        width: 120px;
+        height: 78px;
+        border-radius: 8px;
         background: #006a4e;
-        box-shadow: 0 10px 24px rgba(0,0,0,.22);
+        box-shadow: 0 14px 32px rgba(0,0,0,.25);
         z-index: 5;
       }
       .hero-panel::before {
         content: "";
         position: absolute;
-        top: 24px;
-        right: 39px;
-        width: 20px;
-        height: 20px;
+        top: 31px;
+        right: 64px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         background: #f42a41;
         z-index: 6;
+      }
+      @media (max-width: 700px) {
+        .hero-panel::after {
+          width: 90px;
+          height: 58px;
+          top: 14px;
+          right: 14px;
+        }
+        .hero-panel::before {
+          width: 30px;
+          height: 30px;
+          top: 22px;
+          right: 47px;
+        }
       }
     </style>
   </head>
