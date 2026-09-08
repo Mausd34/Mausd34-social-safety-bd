@@ -6,7 +6,7 @@
     <meta name="description" content="Social Safety BD — public safety statistics, verified case information and emergency resources." />
     <title>Social Safety BD</title>
     <style>
-      /* Larger Bangladesh flag badge on the front-page hero */
+      /* Large waving Bangladesh flag on the front-page hero */
       .hero-panel::after {
         content: "";
         position: absolute;
@@ -14,9 +14,11 @@
         right: 20px;
         width: 120px;
         height: 78px;
-        border-radius: 8px;
+        border-radius: 5px;
         background: #006a4e;
         box-shadow: 0 14px 32px rgba(0,0,0,.25);
+        transform-origin: left center;
+        animation: bdFlagWave 2.8s ease-in-out infinite;
         z-index: 5;
       }
       .hero-panel::before {
@@ -28,8 +30,32 @@
         height: 40px;
         border-radius: 50%;
         background: #f42a41;
+        transform-origin: left center;
+        animation: bdFlagCircleWave 2.8s ease-in-out infinite;
         z-index: 6;
       }
+
+      @keyframes bdFlagWave {
+        0%, 100% { transform: perspective(500px) rotateY(0deg) skewY(0deg); }
+        20% { transform: perspective(500px) rotateY(-8deg) skewY(1deg); }
+        45% { transform: perspective(500px) rotateY(10deg) skewY(-2deg); }
+        70% { transform: perspective(500px) rotateY(-6deg) skewY(2deg); }
+      }
+
+      @keyframes bdFlagCircleWave {
+        0%, 100% { transform: translateX(0) scale(1); }
+        20% { transform: translateX(-3px) scale(.98); }
+        45% { transform: translateX(4px) scale(1.02); }
+        70% { transform: translateX(-2px) scale(.99); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero-panel::after,
+        .hero-panel::before {
+          animation: none;
+        }
+      }
+
       @media (max-width: 700px) {
         .hero-panel::after {
           width: 90px;
